@@ -127,23 +127,29 @@ function About() {
           (item) => item.employee_salary <= 200000 && item.employee_age < 30
         )
         .map((emp, i) => {
+          const isValidSalary = emp.employee_salary > 100000;
           return (
             <div key={i}>
               <div>Name: {emp.employee_name}</div>
               <div>Age: {emp.employee_age}</div>
               <div>Salary: {emp.employee_salary}</div>
+              {isValidSalary ? (
+                <span className={"success"}>Salary is Valid</span>
+              ) : (
+                <span className={"invalid"}>Salary is not valid</span>
+              )}
               <hr />
             </div>
           );
         })}
       <h3>Find a record id</h3>
-      {getEmployeeById.employee_name}
+      {getEmployeeById && getEmployeeById.employee_name}
       <hr />
       <h3>Find a record index</h3>
-      Name: {getEmployeeByIndex.employee_name}
+      Name: {getEmployeeByIndex && getEmployeeByIndex.employee_name}
       <br />
-      Age: {getEmployeeByIndex.employee_age}
-      Salary: {getEmployeeByIndex.employee_salary}
+      Age: {getEmployeeByIndex && getEmployeeByIndex.employee_age}
+      Salary: {getEmployeeByIndex && getEmployeeByIndex.employee_salary}
       <h1>About {name}</h1>
       <button onClick={fetchDataHandler}>Fetch Data</button>
       <div className={"tablist"}>
