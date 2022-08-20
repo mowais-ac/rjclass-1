@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function About() {
   const [orderTotal, setOrderTotal] = useState(50 + 100 + 100);
@@ -109,6 +110,8 @@ function About() {
 
   return (
     <main>
+      <h1>About</h1>
+      <Link to={"/"}>Visit home</Link>
       {/* {testUsers.map((user, index) => {
         return (
           <div key={index}>
@@ -122,7 +125,7 @@ function About() {
           </div>
         );
       })} */}
-      {employees
+      {/* {employees
         .filter(
           (item) => item.employee_salary <= 200000 && item.employee_age < 30
         )
@@ -186,7 +189,7 @@ function About() {
         ) : (
           <h3>Tab 1 is not selected</h3>
         )}
-      </div>
+      </div> */}
     </main>
   );
 }
